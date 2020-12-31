@@ -33,14 +33,15 @@ $('.cargando').show();
     },
 		"ajax":{
 			"method":"POST",
-			"url": "php/consulta_clientes.php"
+			"url": "php/consulta_clientes.php",
+			"dataSrc":""
 		},
 		"columns":[
-			{data:"cardcode"},
-			{data:"cardname"},
-			{data:"direccion"},
-			{data:"telefono"},
-			{data:"cantidad", render: function (data,type) {
+			{"data":"0"},
+			{"data":"cardname"},
+			{"data":"direccion"},
+			{"data":"telefono"},
+			{"data":"cantidad", render: function (data,type) {
 						//console.log(data);
         				//console.log(type);
 		            if(type === 'display'){
@@ -57,12 +58,12 @@ $('.cargando').show();
 		            return data;	
        		 	}      
       		},
-			{data: 'cardcode', render: function (data) {
+			{"data": 'cardcode', render: function (data) {
 			   		return '<a class="btn btn-primary" href="profile.php?cardcode='+data+'"><i class="fa fa-eye"</i></a>';
           		
        		 	}      
       		},
-			{data: 'cardcode', render: function (data,type,row) {
+			{"data": 'cardcode', render: function (data,type,row) {
 					console.log(row[2]);//Mostrar datos de otras columnas
 			   		return '<a class="btn btn-danger" href="editar.php?cardcode='+data+'"><i class="fa fa-edit"</i></a>';
           		

@@ -1,20 +1,31 @@
 <?php
-include('class.conexion.php');
+    require_once "conexionMysql.php";
 
-//traer clientes   
-          $clientes = new Conexion;
-          $sql03 = "SELECT cardcode,cardname,direccion,telefono,(SELECT COUNT(tblcc.id) FROM tblclientes_comentarios tblcc WHERE tblcc.cardcode = tblclientes.cardcode AND MONTH(fecha) = MONTH(CURDATE()) AND YEAR(fecha) = YEAR(CURDATE())) as cantidad FROM tblclientes ORDER BY cantidad DESC";
-          $Rclientes = $clientes->query($sql03) or trigger_error($clientes->error);
-//traer clientes 
-          
-          if (!$Rclientes) {
-           Die ('Error');
-          }else{
-            while ($data = $Rclientes->fetch_array()) {
-              $arreglo['data'][] = array_map('utf8_encode', $data);
-            }
-            echo json_encode($arreglo);
-            //$clientes->free_result();
-            $clientes->close();
-          }
+
+class clientesModelo{
+
+// Datos de clientes -----------------------------------------------------------
+    
+ static public function mdlTraerClientes(){
+
+    $stmt = ConexionMysql::conectarMysql()->prepare("SELECT cardcode,cardname,direccion,telefono,(SELECT COUNT(tblcc.id) FROM tblclientes_comentarios tblcc WHERE tblclientes.cardcode = tblcc.cardcode  GROUP BY tblcc.cardcode) as cantidad FROM tblclientes ORDER BY cantidad DESC");
+
+    if ($stmt->execute()) {
+      $resp = $stmt->fetchAll();
+      return $resp;
+    }else{
+      print_r(ConexionMysql::conectarMysql()->errorInfo());
+    }
+    $stmt = null;
+  }
+
+// Datos de clientes -----------------------------------------------------------
+  }
+  //llamar a la clase:
+    $resp = clientesModelo::mdlTraerClientes();
+    echo json_encode($resp);
+
 ?>
+
+
+
