@@ -78,3 +78,20 @@ $('.cargando').show();
 
 }
 
+
+//Abrir un modal con un boton y enviar datos:
+
+/*		{"data": 'id', render: function (data) {
+				return '<button type="button" id="btnEditarUsuario" class="btn btn-danger" data-toggle="modal" data-usuario="'+data+'" data-target="#modal-xl"><i class="fa fa-edit"</i></button>';
+       		 	}      
+      		},
+
+//Recibir los datos con Jquery:
+
+	//Editar usuario
+		$(document).on("click", "#btnEditarUsuario", function(){
+			var atributo = $(this).data("usuario");
+			console.log (atributo);
+		});
+	//Editar usuario */
+
