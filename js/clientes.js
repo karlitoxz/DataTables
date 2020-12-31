@@ -34,6 +34,7 @@ $('.cargando').show();
 		"ajax":{
 			"method":"POST",
 			"url": "php/consulta_clientes.php",
+			//"data": {"cliente": "Traerclientes"},
 			"dataSrc":""
 		},
 		"columns":[
