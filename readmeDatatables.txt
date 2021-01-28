@@ -16,3 +16,30 @@ funciones de renderizado:
 		]
 
 ---------------------------------------------------------------------------------------------------------------------
+
+Botones de exportar:
+
+	JS:
+		var table = $('#tablaUsuarios').DataTable({
+		"destroy":true,
+		dom: 'Bfrtip',
+		buttons: ['copy', 'csv', 'excel', 'pdf'],
+
+	HTML o  PHP :
+
+		CSS:
+		  <!-- DataTables -->
+		  <link rel="stylesheet" href="./vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+		  <link rel="stylesheet" href="./vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+		JS:
+			<!-- DataTables -->
+			<script src="./vistas/plugins/datatables/jquery.dataTables.min.js"></script>
+			<script src="./vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+			<script src="./vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+			<script src="./vistas/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+			<script src="./vistas/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+			<script src="./vistas/plugins/datatables-buttons/js/jszip.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+			<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
